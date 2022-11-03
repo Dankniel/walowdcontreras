@@ -15,3 +15,10 @@ npm install
 ```python
 npx react-native run-android
 ```
+
+## Troubleshooting
+Make sure you have metro server running, you can manually start it using the following command:
+
+```python
+npx react-native start
+```
