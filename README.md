@@ -4,7 +4,7 @@ Please check the [React Native Documentation](https://reactnative.dev/docs/envir
 
 ## Installation
 
-Use the package manager [npm](https://pip.pypa.io/en/stable/) to install dependencies.
+Use the package manager npm to install dependencies.
 
 ```bash
 npm install
