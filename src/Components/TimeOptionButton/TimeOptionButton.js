@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, TouchableOpacity, Text, Image} from 'react-native';
 import {styles} from './styles.js';
-const TimeOptionButton = ({text, selected, onPress, ...props}) => {
+const TimeOptionButton = ({text, selected, onPress, index, ...props}) => {
   const [isPlaying, setIsPlaying] = useState(true);
 
   return (
@@ -14,7 +14,7 @@ const TimeOptionButton = ({text, selected, onPress, ...props}) => {
             opacity: selected ? 1 : 0.4,
           },
         ]}
-        onPress={onPress}
+        onPress={() => onPress(index)}
         disabled={selected}>
         <Image
           style={styles.clockIcon}

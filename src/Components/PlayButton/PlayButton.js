@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, TouchableOpacity, Text, Image} from 'react-native';
 import {styles} from './styles.js';
-const PlayButton = ({isPlaying, onPress, ...props}) => {
+const PlayButton = ({isPlaying, onPress, disabled, ...props}) => {
   return (
     <>
-      <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
+      <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={onPress}
+        disabled={disabled}>
         <Image
           style={styles.logo}
           source={

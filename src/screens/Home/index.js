@@ -13,6 +13,15 @@ import PlayButton from '../../Components/PlayButton/PlayButton';
 import TimeOptionButton from '../../Components/TimeOptionButton/TimeOptionButton';
 
 const Home = () => {
+  const [selectedTime, setSelectedTime] = useState([false, false, false]);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleSelectTime = optionIndex => {
+    setSelectedTime(
+      selectedTime.map((t, index) => (index === optionIndex ? true : false)),
+    );
+  };
+
   return (
     <GradientBackground>
       <SafeAreaView
@@ -26,18 +35,37 @@ const Home = () => {
             alignContent: 'center',
             alignItems: 'center',
           }}>
-          <BreathContainer />
+          <BreathContainer isPlaying={isPlaying} />
         </View>
         <View>
-          <PlayButton />
+          <PlayButton
+            isPlaying={isPlaying}
+            onPress={() => setIsPlaying(!isPlaying)}
+            disabled={selectedTime.every(t => t === false)}
+          />
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-around',
             }}>
-            <TimeOptionButton selected={true} text={'1 min'} />
-            <TimeOptionButton selected={false} text={'2 min'} />
-            <TimeOptionButton selected={false} text={'3 min'} />
+            <TimeOptionButton
+              selected={selectedTime[0]}
+              text={'1 min'}
+              onPress={optionIndex => handleSelectTime(optionIndex)}
+              index={0}
+            />
+            <TimeOptionButton
+              selected={selectedTime[1]}
+              text={'2 min'}
+              onPress={optionIndex => handleSelectTime(optionIndex)}
+              index={1}
+            />
+            <TimeOptionButton
+              selected={selectedTime[2]}
+              text={'3 min'}
+              onPress={optionIndex => handleSelectTime(optionIndex)}
+              index={2}
+            />
           </View>
         </View>
       </SafeAreaView>

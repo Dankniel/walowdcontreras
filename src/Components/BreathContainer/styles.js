@@ -28,4 +28,25 @@ export const styles = StyleSheet.create({
     width: Dimensions.get('screen').height * 0.22,
     opacity: 0.8,
   },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  item: {
+    position: 'absolute',
+    width: 100,
+    height: 200, // this is the diameter of circle
+  },
+  dot: {
+    //width: '100%',
+    //height: 20,
+    backgroundColor: 'red',
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    color: '#fff',
+  },
 });
